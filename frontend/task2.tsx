@@ -101,7 +101,7 @@ function trackPageView(page) {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({ page }),
-  })// error handling?
+  })
 }
 
 export const ProfileView = (props: ProfileViewProps) => {
@@ -117,7 +117,6 @@ export const ProfileView = (props: ProfileViewProps) => {
     setInterval(() => {
       setTime(Date.now())
     }, 1000)
-    // no cleanup
   }, [])
 
   React.useEffect(() => {
@@ -127,10 +126,8 @@ export const ProfileView = (props: ProfileViewProps) => {
         setUserHistory(response)
       })
       .catch(error => {
-        // if not canceled
         console.log(error)
       })
-      // cleanup on unmount
   }, [props.user.id])
 
   const elapsed_time = (time - props.user.loginTime) / 1000 / 60
