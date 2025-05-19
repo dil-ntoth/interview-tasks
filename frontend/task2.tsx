@@ -117,7 +117,7 @@ export const ProfileView = (props: ProfileViewProps) => {
     setInterval(() => {
       setTime(Date.now())
     }, 1000)
-  }, [])
+  })
 
   React.useEffect(() => {
     const cPromise = cancelablePromise(fetchUserHistory(props.user.id))
